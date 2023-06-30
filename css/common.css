@@ -22,3 +22,19 @@ button {
   padding: 8px 12px;
   cursor: pointer;
 }
+
+/** task-03 styles for gallery  */
+.gallery {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 40px;
+
+  list-style: none;
+}
+
+.gallery-item {
+  width: 750px;
+  border-radius: 5px;
+  box-shadow: -5px -5px 30px 5px rgb(0, 0, 0), 5px 5px 30px 5px rgb(49, 98, 56);
+}
