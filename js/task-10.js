@@ -1,3 +1,4 @@
+const input = document.querySelector('input');
 const createButton = document.querySelector('[data-create]');
 const destroyButton = document.querySelector('[data-destroy]');
 const boxes = document.getElementById('boxes');
@@ -9,20 +10,24 @@ function getRandomHexColor() {
 }
 
 const createBoxes = amount => {
-  if (amount > 100) return;
-
-  for (let i = 0; i < amount; i += 1) {
-    const box = document.createElement('div');
-    box.style.backgroundColor = getRandomHexColor();
-    box.style.width = `${30 + i * 10}px`;
-    box.style.height = `${30 + i * 10}px`;
-    boxes.appendChild(box);
-  }
-  console.log(Number(document.querySelector('input').value));
+  if (amount >= Number(input.min) && amount <= Number(input.max)) {
+    for (let i = 0; i < amount; i += Number(input.step)) {
+      const box = document.createElement('div');
+      box.style.backgroundColor = getRandomHexColor();
+      box.style.width = `${30 + i * 10}px`;
+      box.style.height = `${30 + i * 10}px`;
+      boxes.appendChild(box);
+    }
+    console.log(Number(document.querySelector('input').value));
+  } else
+    return alert(
+      'The number exceeds the limit or does not meet the conditions'
+    );
 };
 
 const destroyBoxes = () => {
   boxes.innerHTML = '';
+  input.value = '';
 };
 
 createButton.addEventListener('click', () => {

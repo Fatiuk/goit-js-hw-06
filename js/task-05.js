@@ -3,5 +3,5 @@ const nameOutput = document.getElementById('name-output');
 
 nameInput.addEventListener('input', event => {
   nameOutput.textContent =
-    nameInput.value === '' ? 'Anonymous' : event.currentTarget.value;
+    nameInput.value.trim() === '' ? 'Anonymous' : event.currentTarget.value;
 });
